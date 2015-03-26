@@ -2,14 +2,14 @@
 
 ### Versions
 
-- [`5.9`, `5.9.1`, `latest` (*5.9/Dockerfile*)](https://raw.githubusercontent.com/cjlyth/docker-elasticsearch/9ab3ce1be30722151024ed5d1a8091e612d25181/5.9/Dockerfile)
+- [`1.4`, `1.4.4`, `latest` (*1.4/Dockerfile*)](1.4/Dockerfile)
 
 ### Local build
 
 ```
-docker build --no-cache -t cjlyth/elasticsearch:5.9 5.9 \
-&& docker tag -f cjlyth/elasticsearch:5.9 cjlyth/elasticsearch:5.9.1 \
-&& docker tag -f cjlyth/elasticsearch:5.9 cjlyth/elasticsearch:latest
+docker build --no-cache -t cjlyth/elasticsearch:1.4 1.4 \
+&& docker tag -f cjlyth/elasticsearch:1.4 cjlyth/elasticsearch:1.4.4 \
+&& docker tag -f cjlyth/elasticsearch:1.4 cjlyth/elasticsearch:latest
 ```
 
 ### Run
@@ -30,6 +30,6 @@ docker run -v $(pwd):/data --rm cjlyth/elasticsearch
 I use this for development mostly
 
 ```
-docker build --no-cache -t cjlyth/elasticsearch:5.9 5.9 \
-	&& docker run -it --rm cjlyth/elasticsearch:5.9 bash
+docker build --no-cache -t cjlyth/elasticsearch:1.4 1.4 \
+	&& docker run -it --rm cjlyth/elasticsearch:1.4 bash
 ```

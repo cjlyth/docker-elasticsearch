@@ -1,7 +1,7 @@
 FROM dockerfile/java:oracle-java8
 MAINTAINER Christopher J Lyth <cjlyth@gmail.com>
 
-ENV PRODUCT_VERSION 1.4.4
+ENV PRODUCT_VERSION 1.5.0
 ENV PRODUCT_NAME elasticsearch
 ENV PRODUCT_HOME /opt/$PRODUCT_NAME-$PRODUCT_VERSION
 
@@ -28,7 +28,7 @@ RUN mkdir -p  $PRODUCT_HOME 							\
 
 RUN plugin -i mobz/elasticsearch-head                             \
  && plugin -i elasticsearch/marvel/latest                         \
- && plugin -i elasticsearch/elasticsearch-analysis-kuromoji/2.4.2 
+ && plugin -i elasticsearch/elasticsearch-analysis-kuromoji/2.5.0 
 
 EXPOSE 9200 9300
 

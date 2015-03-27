@@ -7,9 +7,12 @@ ES_OPTS="${@}"
 	mkdir -p /data/{config,data,logs}
 	ES_OPTS="${ES_OPTS} -Des.path.data=/data/data"
 	ES_OPTS="${ES_OPTS} -Des.path.logs=/data/logs"
-	
-	ES_OPTS="${ES_OPTS} -Des.config=/data/config/elasticsearch.yml"
+	ES_OPTS="${ES_OPTS} -Des.path.conf=/data/config"
+	cp -n /opt/elasticsearch*/config/* /data/config/
 }
+
+#sysctl -w vm.max_map_count=262144
+#sysctl vm.max_map_count
 
 case "${cmd}" in
 	console) $0 elasticsearch console "${ES_OPTS}" ;;

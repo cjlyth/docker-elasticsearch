@@ -27,7 +27,7 @@ RUN mkdir -p  $PRODUCT_HOME 							\
  		  	 /usr/local/bin/
 
 RUN plugin -i mobz/elasticsearch-head                             \
- && plugin -i elasticsearch/marvel/latest                         \
+  && plugin -i elasticsearch/marvel/latest                        \
  && plugin -i elasticsearch/elasticsearch-analysis-kuromoji/2.4.2 
 
 EXPOSE 9200 9300

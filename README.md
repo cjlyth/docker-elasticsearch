@@ -45,10 +45,6 @@ docker build --no-cache -t cjlyth/elasticsearch:1.4 1.4 \
 	&& docker run -it --rm cjlyth/elasticsearch:1.4 bash
 ```
 
-
-might need to add this line to the es config
-
 ```
-marvel.agent.enabled: false
+docker run -it --rm -P -v /tmp/es:/data cjlyth/elasticsearch:1.4
 ```
-

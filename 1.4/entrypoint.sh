@@ -2,13 +2,18 @@
 
 cmd="${1:-elasticsearch}"; shift;
 
+mkdir -p /etc/elasticsearch/config
+mkdir -p /var/lib/elasticsearch/{plugins,data,logs}
+
 ES_OPTS="${@}"
 [[ -z "${ES_OPTS}" ]] && {
 	mkdir -p /data/{config,data,logs}
-	ES_OPTS="${ES_OPTS} -Des.path.data=/data/data"
-	ES_OPTS="${ES_OPTS} -Des.path.logs=/data/logs"
-	ES_OPTS="${ES_OPTS} -Des.path.conf=/data/config"
-	cp -n /opt/elasticsearch*/config/* /data/config/
+	ES_OPTS="${ES_OPTS} -Des.path.plugins=/var/lib/elasticsearch/plugins"
+	ES_OPTS="${ES_OPTS} -Des.path.data=/var/lib/elasticsearch/data"
+	ES_OPTS="${ES_OPTS} -Des.path.logs=/var/lib/elasticsearch/logs"
+	ES_OPTS="${ES_OPTS} -Des.path.conf=/etc/elasticsearch/config"
+	cp -Rn /opt/elasticsearch*/config/* /etc/elasticsearch/config
+	cp -Rn /opt/elasticsearch*/plugins/* /var/lib/elasticsearch/plugins
 }
 
 #sysctl -w vm.max_map_count=262144

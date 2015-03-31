@@ -26,9 +26,15 @@ RUN mkdir -p  $PRODUCT_HOME                             \
  && ln -s    $PRODUCT_HOME/bin/plugin                   \
              /usr/local/bin/
 
-RUN plugin -i mobz/elasticsearch-head                             \
+RUN mkdir -p /var/lib/elasticsearch                               \
+ && plugin -i mobz/elasticsearch-head                             \
  && plugin -i elasticsearch/marvel/latest                         \
  && plugin -i elasticsearch/elasticsearch-analysis-kuromoji/2.4.2 
+
+VOLUME ["/etc/elasticsearch/config", \
+        "/var/lib/elasticsearch/plugins", \
+        "/var/lib/elasticsearch/logs", \
+        "/var/lib/elasticsearch/data"]
 
 EXPOSE 9200 9300
 

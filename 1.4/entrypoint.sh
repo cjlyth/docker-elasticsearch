@@ -16,6 +16,14 @@ ES_OPTS="${@}"
 	cp -Rn /opt/elasticsearch*/plugins/* /var/lib/elasticsearch/plugins
 }
 
+[[ -z "$(grep -oe marvel.agent.enabled /etc/elasticsearch/config/elasticsearch.yml)" ]] && {
+	echo "0"
+echo '
+marvel.agent.enabled: false
+index.routing.allocation.disable_allocation: false
+' >> /etc/elasticsearch/config/elasticsearch.yml	
+}
+# 
 #sysctl -w vm.max_map_count=262144
 #sysctl vm.max_map_count
 

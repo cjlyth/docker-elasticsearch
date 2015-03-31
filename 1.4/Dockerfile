@@ -30,7 +30,7 @@ RUN mkdir -p /var/lib/elasticsearch                               \
  && plugin -i mobz/elasticsearch-head                             \
  && plugin -i elasticsearch/marvel/latest                         \
  && plugin -i elasticsearch/elasticsearch-analysis-kuromoji/2.4.2 
-
+ 
 VOLUME ["/etc/elasticsearch/config", \
         "/var/lib/elasticsearch/plugins", \
         "/var/lib/elasticsearch/logs", \
@@ -41,5 +41,3 @@ EXPOSE 9200 9300
 ENV PATH $PATH:$PRODUCT_HOME/bin
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["elasticsearch"]
-
-#sysctl -w vm.max_map_count=262144

@@ -1,4 +1,4 @@
-FROM dockerfile/java:oracle-java8
+FROM java
 MAINTAINER Christopher J Lyth <cjlyth@gmail.com>
 
 ENV PRODUCT_VERSION 1.5.0

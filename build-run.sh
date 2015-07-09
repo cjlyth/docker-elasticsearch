@@ -20,7 +20,7 @@ docker stop es14 es142 es15 | xargs docker rm
 
 docker build -t cjlyth/elasticsearch:1.4 1.4 && {
 
-docker run -d --name=es142 \
+docker run -d --name=es14 \
 	-v /tmp/es/config:/etc/elasticsearch/config:ro \
 	cjlyth/elasticsearch:1.4
 
@@ -31,3 +31,7 @@ docker run -it --rm -p 9200:9200 -p 9300:9300 --name=es14 \
 	-v /tmp/es/config:/etc/elasticsearch/config \
 	cjlyth/elasticsearch:1.4
 }
+
+
+docker run -d --name=es14 \
+	cjlyth/elasticsearch:1.4
